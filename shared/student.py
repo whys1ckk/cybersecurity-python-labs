@@ -1,0 +1,3 @@
+STUDENT_NAME = "Максим Лопачак"
+GROUP_NAME = "КБ-202"
+VARIANT_NUMBER = 14
