@@ -5,11 +5,9 @@ import string
 import sys
 from pathlib import Path
 
-# Додаємо шлях до кореневої папки, щоб підтягнувся shared/student.py
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
 
-# Вхідні дані згідно з Варіантом 14
 PASSWORDS = [
     "C2@Command",
     "plain123",
@@ -53,7 +51,6 @@ def evaluate_password(password: str, all_passwords: list[str]) -> str:
     """Оцінює надійність конкретного пароля за правилами методички."""
     min_len = CRITERIA["min_length"]
 
-    # 1. Заборонений
     if password in FORBIDDEN_PASSWORDS or len(password) < min_len:
         return "Заборонений"
 
@@ -70,27 +67,20 @@ def evaluate_password(password: str, all_passwords: list[str]) -> str:
 
     is_unique = all_passwords.count(password) == 1
 
-    # 5. Дуже сильний
     if all_criteria_met and len(password) >= min_len + 4 and is_unique:
         return "Дуже сильний"
 
-    # 4. Сильний
     if all_criteria_met and len(password) < min_len + 4:
         return "Сильний"
 
-    # 3. Середній
     if passed_count > 1 and not all_criteria_met:
         return "Середній"
 
-    # 2. Слабкий
     return "Слабкий"
 
 
 def run_task1():
     """Запускає виконання першого завдання."""
-    print("=" * 60)
-    print(f"Студент: {STUDENT_NAME} | Група: {GROUP_NAME} | Варіант: {VARIANT_NUMBER}")
-    print("=" * 60)
     print("ЗАВДАННЯ 1: Аналізатор надійності паролів\n")
 
     prepared_passwords = prepare_passwords(PASSWORDS)

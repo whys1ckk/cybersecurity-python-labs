@@ -1,0 +1,198 @@
+[
+    {
+        "timestamp": "2026-09-11T12:11:17.948432",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:11:17.949002",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:11:17.949329",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:12:21.975631",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:12:21.976300",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:12:21.978982",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:16:19.614214",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:16:19.615854",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:16:19.616732",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:19:30.335012",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:19:30.336289",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:19:30.337032",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:21:07.276421",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:21:07.277188",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:21:07.279914",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:22:15.132271",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:22:15.133340",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:22:15.136203",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:23:15.624722",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:23:15.625961",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-09-11T12:23:15.626679",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    }
+]
