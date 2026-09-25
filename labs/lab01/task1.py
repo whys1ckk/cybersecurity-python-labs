@@ -6,7 +6,6 @@ import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
-from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
 
 PASSWORDS = [
     "C2@Command",

@@ -1,63 +1,71 @@
-"""Завдання 2: Симуляція системи контролю доступу (Варіант 14)."""
+"""Завдання 2: Система контролю доступу (Варіант 14)."""
 
 import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
-from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
-
-ACCESS_LEVELS = ("GUEST", "USER", "ADMIN")
-
-BLOCKED_USERS = {"attacker_01", "malware_bot", "suspended_user"}
 
 USERS = {
-    "alice": ("USER", 1),
-    "bob": ("ADMIN", 2),
-    "guest_user": ("GUEST", 0),
-    "attacker_01": ("USER", 1),
+    "blockchain_dev": {"role": "blockchain_developer", "clearance": 3, "department": "Blockchain", "active": True},
+    "smart_contract_auditor": {"role": "contract_auditor", "clearance": 3, "department": "Audit", "active": True},
+    "crypto_trader": {"role": "trader", "clearance": 2, "department": "Trading", "active": True},
+    "wallet_user": {"role": "wallet_user", "clearance": 1, "department": "Users", "active": True},
+    "mining_pool": {"role": "miner", "clearance": 1, "department": "Mining", "active": False}
 }
 
+RESOURCES = [
+    ("smart_contracts", 3), ("audit_reports", 3),
+    ("trading_algorithms", 2), ("wallet_interface", 1), ("private_keys", 3),
+    ("public_blockchain", 1), ("defi_protocols", 3), ("validator_nodes", 3),
+    ("market_data", 2), ("community_forum", 1)
+]
 
-def check_access(username: str, required_level: int) -> bool:
-    """Перевіряє, чи має користувач доступ до ресурсу."""
+SECURITY_LEVELS = ("Public Blockchain", "Permissioned", "Private Network", "Institutional")
+BLOCKED_USERS = {"mining_pool", "flash_loan_attack", "rug_pull_scam"}
+
+
+def check_access(username: str, resource_name: str, required_level: int) -> bool:
+    """Перевіряє доступ користувача до ресурсу."""
     if username in BLOCKED_USERS:
         print(f"[ВІДМОВА] Користувач '{username}' заблокований у системі.")
         return False
 
     if username not in USERS:
-        print(f"[ВІДМОВА] Користувач '{username}' не знайдений.")
+        print(f"[ВІДМОВА] Користувача '{username}' не знайдено.")
         return False
 
-    role, clear_level = USERS[username]
+    user = USERS[username]
 
-    if clear_level >= required_level:
-        print(
-            f"[ДОЗВОЛЕНО] Користувач '{username}' ({role}, рівень {clear_level}) "
-            f"отримав доступ до ресурсу рівню {required_level}."
-        )
+    if not user.get("active", False):
+        print(f"[ВІДМОВА] Обліковий запис '{username}' неактивний.")
+        return False
+
+    clearance = user["clearance"]
+    role = user["role"]
+
+    if clearance >= required_level:
+        print(f"[ДОЗВОЛЕНО] '{username}' ({role}, рівень {clearance}) -> ресурс '{resource_name}' (потрібно {required_level})")
         return True
 
-    print(
-        f"[ВІДМОВА] Користувач '{username}' ({role}, рівень {clear_level}) "
-        f"не має достатнього рівня доступу (потрібно {required_level})."
-    )
+    print(f"[ВІДМОВА] '{username}' ({role}, рівень {clearance}) -> недостатній рівень для '{resource_name}' (потрібно {required_level})")
     return False
 
 
 def run_task2():
-    """Запускає виконання другого завдання."""
+    """Запускає тестування системи контролю доступу."""
     print("ЗАВДАННЯ 2: Система контролю доступу\n")
 
     test_cases = [
-        ("alice", 1),
-        ("bob", 2),
-        ("guest_user", 1),
-        ("attacker_01", 1),
-        ("unknown_user", 1),
+        ("blockchain_dev", "smart_contracts", 3),
+        ("crypto_trader", "private_keys", 3),
+        ("wallet_user", "wallet_interface", 1),
+        ("mining_pool", "public_blockchain", 1),
+        ("flash_loan_attack", "market_data", 2),
+        ("unknown_user", "community_forum", 1)
     ]
 
-    for user, req_level in test_cases:
-        check_access(user, req_level)
+    for user, res, level in test_cases:
+        check_access(user, res, level)
     print("\n")
 
 

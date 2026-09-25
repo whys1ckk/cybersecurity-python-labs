@@ -5,12 +5,12 @@ import hashlib
 import json
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from functools import wraps
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
-from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
+from shared.student import VARIANT_NUMBER
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 CSV_PATH = DATA_DIR / "users.csv"
@@ -20,9 +20,8 @@ SALT = f"{VARIANT_NUMBER:05d}"
 
 
 class ValidationError(Exception):
-    """Кастомний виняток для помилок валідації паролів."""
+    """Кастомний виняток для помилок валідації паролів та логінів."""
 
-    pass
 
 
 def log_event(func):
@@ -31,7 +30,7 @@ def log_event(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         DATA_DIR.mkdir(parents=True, exist_ok=True)
-        timestamp = datetime.now().isoformat()
+        timestamp = datetime.now(timezone.utc).isoformat()
         try:
             result = func(*args, **kwargs)
             log_entry = {
@@ -57,7 +56,7 @@ def log_event(func):
 
 
 def _append_log(entry: dict):
-    """Впоміжне додавання запису до JSON-файлу."""
+    """Допоміжне додавання запису до JSON-файлу."""
     logs = []
     if LOG_PATH.exists() and LOG_PATH.stat().st_size > 0:
         with open(LOG_PATH, "r", encoding="utf-8") as f:
@@ -83,6 +82,9 @@ def hash_password(password: str) -> str:
 @log_event
 def register_user(username: str, password: str):
     """Реєструє користувача та зберігає його у CSV-файл."""
+    if not username or not username.strip():
+        raise ValidationError("Користувач повинен мати логін (username не може бути порожнім)!")
+
     pwd_hash = hash_password(password)
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -107,6 +109,7 @@ def run_task3():
     test_users = [
         ("admin_user", "SuperSecurePassword123!"),  
         ("analyst_01", "Short123!"),                
+        ("", "LongPasswordWithoutUsername123!"),  # <-- Користувач з паролем, але без логіну
         ("security_officer", "Complex_And_Long_Password_2026"),  
     ]
 
