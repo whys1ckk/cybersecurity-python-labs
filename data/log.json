@@ -596,5 +596,81 @@
             "security_officer",
             "Complex_And_Long_Password_2026"
         ]
+    },
+    {
+        "timestamp": "2026-10-02T05:45:29.557179+00:00",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-10-02T05:45:29.559335+00:00",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-10-02T05:45:29.560913+00:00",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Користувач повинен мати логін (username не може бути порожнім)!",
+        "args": [
+            "",
+            "LongPasswordWithoutUsername123!"
+        ]
+    },
+    {
+        "timestamp": "2026-10-02T05:45:29.562474+00:00",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-10-02T06:20:49.770158+00:00",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "admin_user",
+            "SuperSecurePassword123!"
+        ]
+    },
+    {
+        "timestamp": "2026-10-02T06:20:49.772464+00:00",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Пароль надто короткий (9 симв.). Мінімальна довжина — 16 символів!",
+        "args": [
+            "analyst_01",
+            "Short123!"
+        ]
+    },
+    {
+        "timestamp": "2026-10-02T06:20:49.776706+00:00",
+        "function": "register_user",
+        "status": "SUCCESS",
+        "args": [
+            "security_officer",
+            "Complex_And_Long_Password_2026"
+        ]
+    },
+    {
+        "timestamp": "2026-10-02T06:20:49.779067+00:00",
+        "function": "register_user",
+        "status": "FAILED",
+        "error": "Користувач повинен мати логін (username не може бути порожнім)!",
+        "args": [
+            "",
+            "NoUsername123!"
+        ]
     }
 ]

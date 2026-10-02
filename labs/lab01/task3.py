@@ -23,7 +23,6 @@ class ValidationError(Exception):
     """Кастомний виняток для помилок валідації паролів та логінів."""
 
 
-
 def log_event(func):
     """Декоратор для логування результатів виконання функцій у JSON."""
 
@@ -83,7 +82,9 @@ def hash_password(password: str) -> str:
 def register_user(username: str, password: str):
     """Реєструє користувача та зберігає його у CSV-файл."""
     if not username or not username.strip():
-        raise ValidationError("Користувач повинен мати логін (username не може бути порожнім)!")
+        raise ValidationError(
+            "Користувач повинен мати логін (username не може бути порожнім)!"
+        )
 
     pwd_hash = hash_password(password)
 
@@ -107,10 +108,10 @@ def run_task3():
         os.remove(CSV_PATH)
 
     test_users = [
-        ("admin_user", "SuperSecurePassword123!"),  
-        ("analyst_01", "Short123!"),                
-        ("", "LongPasswordWithoutUsername123!"),  # <-- Користувач з паролем, але без логіну
-        ("security_officer", "Complex_And_Long_Password_2026"),  
+        ("admin_user", "SuperSecurePassword123!"),
+        ("analyst_01", "Short123!"),
+        ("security_officer", "Complex_And_Long_Password_2026"),
+        ("", "NoUsername123!"),
     ]
 
     for user, pwd in test_users:

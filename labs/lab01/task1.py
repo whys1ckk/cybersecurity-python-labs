@@ -60,9 +60,7 @@ def evaluate_password(password: str, all_passwords: list[str]) -> str:
 
     checks = [has_digit, has_upper, has_lower, has_special]
     passed_count = sum(checks)
-    all_criteria_met = (
-        has_digit and has_upper and has_lower and has_special
-    )
+    all_criteria_met = has_digit and has_upper and has_lower and has_special
 
     is_unique = all_passwords.count(password) == 1
 

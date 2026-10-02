@@ -1,0 +1,42 @@
+[
+  {
+    "AlertID": "EDR-1001",
+    "Timestamp": "2026-10-02T08:30:00Z",
+    "Hostname": "WS-FINANCE-01",
+    "ThreatName": "Trojan.Generic.KD",
+    "Severity": "High",
+    "ActionTaken": "Quarantined"
+  },
+  {
+    "AlertID": "EDR-1002",
+    "Timestamp": "2026-10-02T08:45:12Z",
+    "Hostname": "WS-DEV-04",
+    "ThreatName": "Ransom.Win32.WannaCry",
+    "Severity": "Critical",
+    "ActionTaken": "Blocked"
+  },
+  {
+    "AlertID": "EDR-1003",
+    "Timestamp": "2026-10-02T09:10:05Z",
+    "Hostname": "SRV-DB-PRIMARY",
+    "ThreatName": "Adware.Win32.Agent",
+    "Severity": "Low",
+    "ActionTaken": "Deleted"
+  },
+  {
+    "AlertID": "EDR-1004",
+    "Timestamp": "2026-10-02T09:22:40Z",
+    "Hostname": "WS-DEV-04",
+    "ThreatName": "HackTool.Win32.Mimikatz",
+    "Severity": "Critical",
+    "ActionTaken": "Ignored"
+  },
+  {
+    "AlertID": "EDR-1005",
+    "Timestamp": "2026-10-02T09:30:15Z",
+    "Hostname": "WS-HR-02",
+    "ThreatName": "PUP.Optional.Legacy",
+    "Severity": "Medium",
+    "ActionTaken": "Quarantined"
+  }
+]
